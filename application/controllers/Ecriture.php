@@ -52,7 +52,6 @@ class Ecriture extends CI_Controller {
                     'debit' => $this->input->get('debit'),
                     'credit' => $this->input->get('credit'),
                     'quantite' => $this->input->get('quantite'),
-                    'taux' => $this->input->get('taux'),
                     'devise' => $this->input->get('devise'),
                     'idecrit' => $this->input->get('idecrit')
                ); 
@@ -63,7 +62,7 @@ class Ecriture extends CI_Controller {
           $Alldevice = $this->Entreprise->getDevise($idEntreprise);
           $data1 = array(
                'idEcrit' => $idecrit,
-               'device' => $Alldevice
+               'devise' => $Alldevice
           );
           $this->load->view('template/mouvement',$data1);
      }

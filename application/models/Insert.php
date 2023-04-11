@@ -31,12 +31,27 @@
                $row = $query->row_array();
                return $row['id'];
           }
-          // function getIdSociete($nom){
-          //      $sql = "SELECT id FROM entreprise where nom = %s";
-          //      $sql = sprintf($sql,$this->db->escape($nom));
-          //      $query = $this->db->query($sql);
-          //      $row = $query->row_array();
-          //      return $row['id'];
-          // }
+          function getIdE($idUser){
+               $sql = "SELECT id FROM entreprise where idUser = %s";
+               $sql = sprintf($sql,$this->db->escape($idUser));
+               $query = $this->db->query($sql);
+               $row = $query->row_array();
+               return $row['id'];
+          }
+
+          public function checkUser($data){
+               $sql = "select id from users where email=%s and mdp=%s";
+               $sql = sprintf($sql,$this->db->escape($data['email']), $this->db->escape($data['mdp']));
+               $query = $this->db->query($sql);
+               $row = $query->row_array();
+               return $row['id'];
+          }
+
+
+          public function insert_File_csv($identreprise,$tab){
+               $query = "INSERT INTO plan VALUES(%s,%s,%s)";
+               $query = sprintf($query,$this->db->escape($tab['numero']),$this->db->escape($identreprise), $this->db->escape($tab['intitule']));
+               $this->db->query($query);
+          }
      }
 ?>

@@ -1,3 +1,6 @@
+<?php
+	$error = form_error('pwd');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +8,26 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="admin/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="<?php echo base_url("admin/images/icons/favicon.ico") ?>"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="admin/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/vendor/bootstrap/css/bootstrap.min.css"); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css") ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="admin/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/vendor/animate/animate.css") ?>">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="admin/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/vendor/css-hamburgers/hamburgers.min.css") ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="admin/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/vendor/select2/select2.min.css") ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="admin/css/util.css">
-	<link rel="stylesheet" type="text/css" href="admin/css/main.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/css/util.css");?>" >
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("admin/css/main.css"); ?>">
 <!--===============================================================================================-->
+<style>
+	#error{
+		text-align : center;
+	}
+</style>
 </head>
 <body>
 	
@@ -27,68 +35,57 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="admin/images/img-01.png" alt="IMG">
+					<img src="<?php echo base_url("admin/images/img-01.png"); ?>" alt="IMG">
 				</div>
 
-				<form  action="<?= site_url('Login/valide'); ?>">
-					<span class="login100-form-title">
-						Member Login
-					</span>
-					<div>
-						<div class="form-group">
-							<label class="label" for="email">Email</label>
-							<input type="text" name="email" class="form-control">
-						
-						</div>
-						<div>
-							<?= form_error('email') ?>
-						</div>
+			<form action="<?= site_url('Login/checkLogin'); ?>" method="post">
+				<span class="login100-form-title">Membre</span>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
 					</div>
-					<div>
-						<div class="form-group">
-							<label class="label" for="mdp">Mot de passe</label>
-							<input type="text" name="mdp" class="form-control">
-							
-						</div>
-						<div>
-							<?= form_error('mdp') ?>
-						</div>
+					<div id="error" class="text-danger" style="color: red;">
+						<?= form_error('email') ?>
 					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="password"  name="pwd" placeholder="Mot de passe">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div id="error" class="text-danger" style="color: red;">
+						<?php echo form_error('pwd'); ?>
+					</div>
+					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Connecter
+							Se Connecter
 						</button>
 					</div>
-					<div class="text-center p-t-56">
+
+					<div class="text-center p-t-136">
 						<a class="txt2" href="<?= site_url('Login/sign'); ?>">
-							Creer un compte
+							Créer un compte
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
-				</form>
+     		</form>
 			</div>
 		</div>
-	</div>
-	
-	
+	</div>	
+<script src="<?php echo base_url("admin/vendor/jquery/jquery-3.2.1.min.js") ?>"></script>
 
-	
-<!--===============================================================================================-->	
-	<script src="admin/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="admin/vendor/bootstrap/js/popper.js"></script>
-	<script src="admin/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="admin/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="admin/vendor/tilt/tilt.jquery.min.js"></script>
+	<script src="<?php echo base_url("admin/vendor/tilt/tilt.jquery.min.js"); ?>"></script>
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
 	</script>
-<!--===============================================================================================-->
-	<script src="admin/js/main.js"></script>
-
+	</script>
 </body>
 </html>

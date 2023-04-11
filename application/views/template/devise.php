@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/nice-select.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
     
     </style>
@@ -96,7 +97,7 @@
     <main>
     <!--? New Arrival Start -->
     <div class="new-arrival">
-    
+        <div class="container">
             <!-- Section tittle -->
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-8 col-md-10">
@@ -106,7 +107,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <table class="table table-secondary">
                 <thead>
                   <tr>
@@ -121,8 +122,8 @@
                          <tr>
                               <td><?php echo $resultats[$i]['devise']; ?></td>
                               <td><?php echo $resultats[$i]['devise_equivalence']; ?></td>
-                              <td><a href="<?php echo site_url("home/getdev?devise=".$resultats[$i]['devise']);?>" class="genric-btn primary-border circle medium">Modifier</a></td>
-                              <td><a href="<?php echo site_url("home/deleteDev?devise=".$resultats[$i]['devise']);?>" class="genric-btn danger-border circle medium">Supprimer</a></td>
+                              <td><a href="<?php echo site_url("home/getdev?devise=".$resultats[$i]['devise']);?>" class="genric-btn primary-border circle medium"><i class="fa fa-pencil"></a></td>
+                              <td><a href="<?php echo site_url("home/deleteDev?devise=".$resultats[$i]['devise']);?>" class="genric-btn danger-border circle medium"><i class="fa fa-trash"></a></td>
                          </tr>
                     <?php } ?>
                 </tbody>
@@ -130,7 +131,9 @@
               <!-- End Dark Table -->
 
                 </div>
-                <div class="col-xl-1 col-lg-1"></div>
+                <a href="<?php echo site_url("societe/Adevise"); ?>"><button type="submit" class="genric-btn primary-border circle e-large">Ajout</button></a>
+
+                <!-- <div class="col-xl-1 col-lg-1"></div>
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                     <h2>Ajouter</h2>
                     <form class="form-contact comment_form" action="<?= site_url('home/addDev'); ?>" id="commentForm">
@@ -153,8 +156,8 @@
                             </div>
                     </form>
                 </div>
-            </div>
-        
+            </div> -->
+        </div>
     </div>
     </main>
 <!--? Search model Begin -->

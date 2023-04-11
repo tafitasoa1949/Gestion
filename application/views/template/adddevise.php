@@ -23,8 +23,6 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/nice-select.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <style>
     
     </style>
@@ -59,7 +57,7 @@
                                     <ul id="navigation">
                                         <li><a href="<?= site_url('home/index'); ?>">Information</a></li> 
                                         <li><a href="<?= site_url('home/voir_plancompta'); ?>">Plan Comptable</a></li>
-                                        <li><a href="#">Exercice</a></li>
+                                        <li><a href="<?= site_url('home/exercice'); ?>">Exercice</a></li>
                                         <li><a href="<?= site_url('home/devise'); ?>">Devise</a></li>
                                     </ul>
                                 </nav>
@@ -101,61 +99,53 @@
         <div class="container">
             <!-- Section tittle -->
             <div class="row justify-content-center">
-                <div class="col-xl-12 col-lg-12 col-md-10">
+                <div class="col-xl-7 col-lg-8 col-md-10">
                     <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                        <h2>Liste des exercices</h2>
+                         <h2>AJOUT DEVISE</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <table class="table">
-                    <thead>
-                        <tr>
-                            <th >ID</th>
-                            <th >Nom</th>
-                            <th >Date debut</th>
-                            <th >Date fin</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i = 0 ; $i < count($resultats) ; $i++) {?>
-                            <tr>
-                                <td><?php echo $resultats[$i]['id']; ?></td>
-                                <td><?php echo $resultats[$i]['nom']; ?></td>
-                                <td><?php echo $resultats[$i]['debut']; ?></td>
-                                <td><?php echo $resultats[$i]['fin']; ?></td>
-                                <td><a href="<?php echo site_url("ecriture/index?id=".$resultats[$i]['id']);?>" class="genric-btn primary-border circle medium">Voir</a></td>
-                                <td><a href="<?php echo site_url("societe/deleteExo?id=".$resultats[$i]['id']);?>" class="genric-btn danger-border circle medium"><i class="fa fa-trash"></a></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                    </table>
+                <table class="table table-secondary">
+                <thead>
+                  <tr>
+                    <th scope="col">Devise</th>
+                    <th scope="col">Taux</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <?php for($i = 0 ; $i < count($resultats) ; $i++) { ?>
+                         <tr>
+                              <td><?php echo $resultats[$i]['devise']; ?></td>
+                              <td><?php echo $resultats[$i]['devise_equivalence']; ?></td>
+                              <td><a href="<?php echo site_url("home/getdev?devise=".$resultats[$i]['devise']);?>" class="genric-btn primary-border circle medium">Modifier</a></td>
+                              <td><a href="<?php echo site_url("home/deleteDev?devise=".$resultats[$i]['devise']);?>" class="genric-btn danger-border circle medium">Supprimer</a></td>
+                         </tr>
+                    <?php } ?>
+                </tbody>
+              </table>
+              End Dark Table
+
                 </div>
-                <a href="<?php echo site_url("societe/Aexercice"); ?>"><button type="submit" class="genric-btn primary-border circle e-large">Ajout</button></a>
-                <!-- <div class="col-xl-1 col-lg-1"></div>
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-                    <h2>Ajouter</h2>
-                    <form class="form-contact comment_form" action="<?= site_url('societe/addExo'); ?>" id="commentForm">
+                <a href="<?php echo site_url("societe/Adevise"); ?>"><button type="submit" class="genric-btn primary-border circle e-large">Ajout</button></a> -->
+
+                <!-- <div class="col-xl-1 col-lg-1"></div> -->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <form class="form-contact comment_form" action="<?= site_url('home/addDev'); ?>" id="commentForm">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="nom">Nom</label>
-                                    <input class="form-control" name="nom" type="text" placeholder="Nom d'exercice">
+                                    <label for="numero">Devise</label>
+                                    <input class="form-control" name="device" type="text" placeholder="device">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="debut">Debut d'exercice</label>
-                                    <input class="form-control" name="debut" type="date">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="fin">Fin d'exercice</label>
-                                    <input class="form-control" name="fin" type="date" >
+                                    <label for="intitule">Taux</label>
+                                    <input class="form-control" name="equivalence" type="number" placeholder="Equivalence">
                                 </div>
                             </div>
                         </div>
@@ -163,8 +153,8 @@
                                 <button type="submit" class="genric-btn primary-border circle e-large">Inserer</button>
                             </div>
                     </form>
-                </div> -->
-            <!-- </div> -->
+                </div>
+            </div>
         </div>
     </div>
     </main>

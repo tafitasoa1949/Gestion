@@ -122,52 +122,62 @@ $id = $_GET['id'];
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Nom</label>
                                 <input class="form-control" name="nom" id="name" type="text"  value="<?php echo $info['nom']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Objet</label>
                                 <input class="form-control" name="objet" id="email" type="text" value="<?php echo $info['objet']; ?>" >
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
+                                <label for="numero">Siege</label>
                                 <input class="form-control" name="siege" id="website" type="text" value="<?php echo $info['siege']; ?>">
                             </div>
                         </div>
                     
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Addresse d'exportation</label>
                                 <input class="form-control" name="adresse" id="name" type="text" value="<?php echo $info['Adresse_d_exploitation']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Nom de dirigeant</label>
                                 <input class="form-control" name="dirigeant" id="email" type="text" value="<?php echo $info['nom_dirigeant']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Date de creation</label>
                                 <input class="form-control" name="creation" id="name" type="date" value="<?php echo $info['date_creation']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Numero d'identification</label>
                                 <input class="form-control" name="identifie" id="email" type="number" value="<?php echo $info['numero_identification']; ?>">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
+                                <label for="numero">Numero statistique</label>
                                 <input class="form-control" name="stat" id="website" type="number" value="<?php echo $info['numero_statistique']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Numero de registre commerce</label>
                                 <input class="form-control" name="registre" id="name" type="text" value="<?php echo $info['numero_registre_commerce']; ?>">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="numero">Status</label>
                                 <input class="form-control" name="status" id="email" type="text" value="<?php echo $info['status']; ?>">
                             </div>
                         </div>                

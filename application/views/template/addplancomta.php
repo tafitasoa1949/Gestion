@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="../assets/css/nice-select.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <style>
     
     </style>
@@ -59,7 +58,7 @@
                                     <ul id="navigation">
                                         <li><a href="<?= site_url('home/index'); ?>">Information</a></li> 
                                         <li><a href="<?= site_url('home/voir_plancompta'); ?>">Plan Comptable</a></li>
-                                        <li><a href="#">Exercice</a></li>
+                                        <li><a href="<?= site_url('home/exercice'); ?>">Exercice</a></li>
                                         <li><a href="<?= site_url('home/devise'); ?>">Devise</a></li>
                                     </ul>
                                 </nav>
@@ -98,80 +97,80 @@
     <main>
     <!--? New Arrival Start -->
     <div class="new-arrival">
-        <div class="container">
+          <div class="container">
             <!-- Section tittle -->
             <div class="row justify-content-center">
-                <div class="col-xl-12 col-lg-12 col-md-10">
+                <div class="col-xl-7 col-lg-8 col-md-10">
                     <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                        <h2>Liste des exercices</h2>
+                         <h2>Ajout Comptable</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <table class="table">
-                    <thead>
-                        <tr>
-                            <th >ID</th>
-                            <th >Nom</th>
-                            <th >Date debut</th>
-                            <th >Date fin</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i = 0 ; $i < count($resultats) ; $i++) {?>
-                            <tr>
-                                <td><?php echo $resultats[$i]['id']; ?></td>
-                                <td><?php echo $resultats[$i]['nom']; ?></td>
-                                <td><?php echo $resultats[$i]['debut']; ?></td>
-                                <td><?php echo $resultats[$i]['fin']; ?></td>
-                                <td><a href="<?php echo site_url("ecriture/index?id=".$resultats[$i]['id']);?>" class="genric-btn primary-border circle medium">Voir</a></td>
-                                <td><a href="<?php echo site_url("societe/deleteExo?id=".$resultats[$i]['id']);?>" class="genric-btn danger-border circle medium"><i class="fa fa-trash"></a></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                    </table>
+                <!-- <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                <table class="table table-secondary">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Intitule</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <?php for($i = 0 ; $i < count($resultats) ; $i++) { ?>
+                         <tr>
+                              <td><?php echo $resultats[$i]['numero']; ?></td>
+                              <td><?php echo $resultats[$i]['intitule']; ?></td>
+                              <td><a href="#" class="genric-btn primary-border circle medium">Modifier</a></td>
+                              <td><a href="<?php echo site_url("societe/deleteCompte?numero=".$resultats[$i]['numero']);?>" class="genric-btn danger-border circle medium">Supprimer</a></td>
+                         </tr>
+                    <?php } ?>
+                </tbody>
+                <a href="<?php echo site_url("societe/deleteCompte?numero=".$resultats[$i]['numero']);?>"><button type="submit" class="genric-btn primary-border circle e-large">Ajout</button></a>
+              </table> -->
+              <!-- End Dark Table -->
+
                 </div>
-                <a href="<?php echo site_url("societe/Aexercice"); ?>"><button type="submit" class="genric-btn primary-border circle e-large">Ajout</button></a>
-                <!-- <div class="col-xl-1 col-lg-1"></div>
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-                    <h2>Ajouter</h2>
-                    <form class="form-contact comment_form" action="<?= site_url('societe/addExo'); ?>" id="commentForm">
+                <div class="col-xl-1 col-lg-1"></div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    
+                    <form method="get" class="form-contact comment_form" action="<?= site_url('societe/addCompte'); ?>" id="commentForm" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="nom">Nom</label>
-                                    <input class="form-control" name="nom" type="text" placeholder="Nom d'exercice">
+                                    <label for="numero">Numero</label>
+                                    <input class="form-control" name="numero" type="number" placeholder="Numero">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="debut">Debut d'exercice</label>
-                                    <input class="form-control" name="debut" type="date">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="fin">Fin d'exercice</label>
-                                    <input class="form-control" name="fin" type="date" >
+                                    <label for="intitule">Intitule</label>
+                                    <input class="form-control" name="intitule" type="text" placeholder="Intitule">
                                 </div>
                             </div>
                         </div>
-                            <div class="form-group">
-                                <button type="submit" class="genric-btn primary-border circle e-large">Inserer</button>
-                            </div>
+                        <div class="form-group">
+                            <button type="submit" class="genric-btn primary-border circle e-large">Ajouter</button>
+                        </div>
                     </form>
-                </div> -->
-            <!-- </div> -->
-        </div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <?= form_open_multipart('societe/getcsv') ?>
+                            <input type="file" name="csv_file" />
+                            <button type="submit">Upload</button>
+                        <?= form_close() ?>
+                    </div>
+                </div>
+            </div>
+          </div>
     </div>
     </main>
 <!--? Search model Begin -->
 <div class="search-model-box">
     <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-btn">+</div>
+        <div class="search-close-btn"></div>
         <form class="search-model-form">
             <input type="text" id="search-input" placeholder="Searching key.....">
         </form>

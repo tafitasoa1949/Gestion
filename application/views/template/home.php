@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/nice-select.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         #modif{
             padding: 20px;
@@ -187,7 +188,9 @@
                     <a href="<?php echo site_url("societe/updateEntre?id=".$info['id']);?>" class="genric-btn warning-border large">Modifer</a>
                 </div>
                 <div class="col-md-6">
+                   
                     <a href="<?php echo site_url("societe/deleteEntrep?id=".$info['id']);?>" class="genric-btn danger-border large">Supprimer</a>
+                    <p></p>
                 </div>    
             </div>
         </div>

@@ -140,11 +140,11 @@
                                 <input class="form-control valid" name="quantite" id="ecrit" type="text" placeholder="Quantite">
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <!-- <div class="col-sm-1">
                             <div class="form-group">
                                 <input class="form-control valid" name="taux" id="ecrit" type="text" placeholder="Taux">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-sm-1">
                             <div class="form-group">
                                 <div class="select" id="sele">

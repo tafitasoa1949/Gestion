@@ -5,8 +5,10 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->model('Entreprise');
+		$this->limit=2;
 	}
 	public function index(){
+		
 		$id = $this->session->userdata('id');
 		$information = $this->Entreprise->getInformation($id);
 		$donnees = array(
@@ -24,10 +26,15 @@ class Home extends CI_Controller {
 	public function voir_exo(){
 		$this->load->view('template/addexo');
 	}
-	public function voir_plancompta(){
+	public function voir_plancompta($page=1){
+		$page = $this->limit*($page-1);
 		$idEntreprise = $this->session->userdata('id');
-		$resultats = $this->Entreprise->getPlanCompta($idEntreprise);
+		$allplancompta = $this->Entreprise->getPlanCompta($idEntreprise);
+		$pages = count($allplancompta)/$this->limit;
+		$pages = ceil($pages);
+		$resultats = $this->Entreprise->getPlanComptalimited($idEntreprise,$this->limit,$page);
 		$data['resultats'] = $resultats;
+		$data['pages'] = $pages;
 		$this->load->view('template/plancompta',$data);
 	}
 	public function devise(){
@@ -48,14 +55,18 @@ class Home extends CI_Controller {
           
      }
 	public function traitementD() {
-          
-          $data = array(
-               'device' => $_GET['device'],
-               'devi' => $this->input->post('devi'),
-               'equivalence' => $this->input->post('equivalence')
-          );
-          $this->Entreprise->updateDevise($data);
-          redirect('Home/devise');
+          try{
+			$data = array(
+				'devise' => $_GET['devise'],
+				'devi' => $this->input->post('devi'),
+				'equivalence' => $this->input->post('equivalence')
+			);
+			// var_dump($data);
+			$this->Entreprise->updateDevise($data);
+			redirect('Home/devise');
+		}catch(Exception $e){
+			throw $e;
+		}
       
      }
 	public function addDev(){

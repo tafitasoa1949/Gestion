@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
-
     <!-- CSS here -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
@@ -23,6 +22,7 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/nice-select.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
     
     </style>
@@ -69,9 +69,17 @@
                             <div class="search d-none d-md-block">
                                 <ul class="d-flex align-items-center">
                                     <li class="mr-15">
-                                        <div class="nav-search search-switch">
-                                            <i class="ti-search"></i>
+                                    <form class="form-contact comment_form" action="<?= site_url('Search/search'); ?>" id="commentForm">
+                                        <div class="input-group">
+                                            <div class="form-outline">
+                                                <input class="form-control" name="search" type="text" placeholder="Recherche">
+                                            </div>
+                                            
+                                            <button type="submit" class="genric-btn primary-border medium">
+                                                <i class="fas fa-search"></i>
+                                            </button>
                                         </div>
+                                        </form>
                                     </li>
                                     <li>
                                         <div class="card-stor">   
@@ -96,7 +104,7 @@
     <main>
     <!--? New Arrival Start -->
     <div class="new-arrival">
-    
+        <div class="container">
             <!-- Section tittle -->
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-8 col-md-10">
@@ -106,7 +114,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <table class="table table-secondary">
                 <thead>
                   <tr>
@@ -121,41 +129,30 @@
                          <tr>
                               <td><?php echo $resultats[$i]['numero']; ?></td>
                               <td><?php echo $resultats[$i]['intitule']; ?></td>
-                              <td><a href="#" class="genric-btn primary-border circle medium">Modifier</a></td>
-                              <td><a href="<?php echo site_url("societe/deleteCompte?numero=".$resultats[$i]['numero']);?>" class="genric-btn danger-border circle medium">Supprimer</a></td>
+                              <td><a href="#" class="genric-btn primary-border circle medium"><i class="fa fa-pencil"></a></td>
+                              <td><a href="<?php echo site_url("societe/deleteCompte?numero=".$resultats[$i]['numero']);?>" class="genric-btn danger-border circle medium"><i class="fa fa-trash"></a></td>
                          </tr>
                     <?php } ?>
                 </tbody>
+                
               </table>
-              <!-- End Dark Table -->
+              <a href="<?php echo site_url("societe/Aplancompta"); ?>"><button type="submit" class="genric-btn primary-border circle e-large">Ajout</button></a>
+              <div>
+        <?php 
+        // echo $pages; 
+            for($i=1; $i<= $pages; $i++){ ?>
+                <a class="btn btn-primary" href="<?php echo site_url('home/voir_plancompta/'.$i); ?>">
+                <?php echo $i; ?>
+            </a>
+            <?php }
+        ?>
 
-                </div>
-                <div class="col-xl-1 col-lg-1"></div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                    <h2>Ajouter</h2>
-                    <form class="form-contact comment_form" action="<?= site_url('societe/addCompte'); ?>" id="commentForm">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="numero">Numero</label>
-                                    <input class="form-control" name="numero" type="number" placeholder="Numero">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="intitule">Intitule</label>
-                                    <input class="form-control" name="intitule" type="text" placeholder="Intitule">
-                                </div>
-                            </div>
-                        </div>
-                            <div class="form-group">
-                                <button type="submit" class="genric-btn primary-border circle e-large">Inserer</button>
-                            </div>
-                    </form>
-                </div>
-            </div>
-        
     </div>
+                
+            </div>
+        </div>
+    </div>
+    
     </main>
 <!--? Search model Begin -->
 <div class="search-model-box">

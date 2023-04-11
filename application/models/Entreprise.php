@@ -47,6 +47,14 @@
                $query = $this->db->query($sql); 
                return $query->result_array(); 
           }
+
+          public function getPlanComptalimited($identreprise,$limit,$depart) {
+               $sql = 'SELECT * FROM plan where idEntreprise = %s limit %d offset %d';
+               $sql = sprintf($sql, $identreprise,$limit,$depart);
+               $query = $this->db->query($sql); 
+               return $query->result_array(); 
+          }
+
           public function deleteCompte($id){
                $query = "DELETE from plan where numero = %s";
                $this->db->query(sprintf($query, $id));
@@ -78,7 +86,7 @@
 
           public function updateDevise($data){
                $query='UPDATE montant SET devise = %s ,devise_equivalence = %s WHERE devise = %s';
-               $query = sprintf($query,$this->db->escape($data['devi']),$this->db->escape($data['equivalence']),$this->db->escape($data['device']));
+               $query = sprintf($query,$this->db->escape($data['devi']),$this->db->escape($data['equivalence']),$this->db->escape($data['devise']));
                $this->db->query($query);
           }
           public function getDeviseI($device) {
@@ -107,8 +115,8 @@
                return $row['id'];
           }
           public function AddMouve($data){
-               $query = "INSERT INTO mouvement VALUES(%s,%s,%s,%s,%s,%s,%s,%s)";
-               $query = sprintf($query,$this->db->escape($data['idecrit']),$this->db->escape($data['compte']),$this->db->escape($data['tiers']),$this->db->escape($data['debit']),$this->db->escape($data['credit']),$this->db->escape($data['quantite']),$this->db->escape($data['taux']),$this->db->escape($data['devise']));
+               $query = "INSERT INTO mouvement VALUES(%s,%s,%s,%s,%s,%s,%s)";
+               $query = sprintf($query,$this->db->escape($data['idecrit']),$this->db->escape($data['compte']),$this->db->escape($data['tiers']),$this->db->escape($data['debit']),$this->db->escape($data['credit']),$this->db->escape($data['quantite']),$this->db->escape($data['devise']));
                $this->db->query($query);
           }
           public function getGrandlivre($idExercice){
@@ -157,6 +165,11 @@
                $row = $query->row_array();
                return $row; 
           }
+          public function getSearch($idEntreprise,$search) {
+               $sql = "SELECT * FROM plan WHERE intitule LIKE '$search%' and idEntreprise=$idEntreprise;";
+               $query = $this->db->query($sql);
+               return $query->result_array();
+           }
      }
 
 ?>

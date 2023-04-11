@@ -90,8 +90,8 @@
 										</div>
 										<div class="col-md-12">
 											<div class="form-group">
-						            				<label class="label" for="text">Plan comptable</label>
-						              				<input type="text" name="" class="form-control">
+						            				<label class="label" for="plan">Plan comptable</label>
+						              				<input type="file" name="plan" class="form-control">
 						            			</div>
 										</div>
 										<div class="col-md-12">

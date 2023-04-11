@@ -66,7 +66,6 @@ create table mouvement(
      debit numeric(15,4) default 0 not null,
      credit numeric(15,4) default 0 not null,
      quantite numeric(15,4) not null,
-     taux numeric(15,4) not null,
      devise varchar(50) not null,
      foreign key (devise) references  montant(devise),
      foreign key (compte) references  plan(numero),
